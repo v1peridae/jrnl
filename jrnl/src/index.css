@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "mondwest";
+  font-style: normal;
+  src: url("./fonts/mondwest.woff") format("woff");
+}
+
+@font-face {
+  font-family: "neuebit";
+  font-style: normal;
+  src: url("./fonts/neuebit.woff") format("woff");
+}
