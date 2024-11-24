@@ -13,3 +13,7 @@
   font-style: normal;
   src: url("./fonts/neuebit.woff") format("woff");
 }
+
+::-webkit-scrollbar {
+  width: 0;
+}
