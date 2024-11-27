@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import { collection, addDoc, getDocs, doc, updateDoc } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
 import WannaJurnl from '../components/wannaJurnl';
+import { useAuth } from '../components/AuthContxt';
 
 function Journal() {
+    const { user } = useAuth();
     const [entries, setEntries] = useState([]);
     const [newEntry, setNewEntry] = useState({ title: '', content: '' });
     const currentDate = new Date().toLocaleDateString();
@@ -11,7 +13,9 @@ function Journal() {
 
     useEffect(() => {
         const fetchEntries = async () => {
-            const querySnapshot = await getDocs(collection(db, 'entries'));
+            const querySnapshot = await getDocs(
+                collection(db, 'users', user.uid, 'entries')
+            );
             const entriesList = querySnapshot.docs.map(doc => ({
                 id: doc.id,
                 ...doc.data()
@@ -20,15 +24,18 @@ function Journal() {
             setEntries(sortedEntries);
         };
         fetchEntries();
-    }, []);
+    }, [user.uid]);
 
     const handleAddEntry = async () => {
         try {
-            const docRef = await addDoc(collection(db, 'entries'), {
-                title: newEntry.title,
-                content: newEntry.content,
-                date: new Date().toISOString(),
-            });
+            const docRef = await addDoc(
+                collection(db, 'users', user.uid, 'entries'),
+                {
+                    title: newEntry.title,
+                    content: newEntry.content,
+                    date: new Date().toISOString(),
+                }
+            );
             
             const newEntryWithId = {
                 id: docRef.id,
@@ -45,7 +52,7 @@ function Journal() {
     };
     const handleUpdateEntry = async () => {
         try {
-            const entryRef = doc(db, 'entries', editingId);
+            const entryRef = doc(db, 'users', user.uid, 'entries', editingId);
             const updatedEntry = {
                 title: newEntry.title,
                 content: newEntry.content,
