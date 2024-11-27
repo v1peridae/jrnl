@@ -1,8 +1,8 @@
 # Jurnl
 
-<h1>Talk about how YOU feel.</h1><br><br>
-<h2>Jurnl is an online jounraling website where you can yap about anything and everything.</h2><br><br>
-<h2>Jurnl entries aren't deletable because we believe everything is important, even the smallest things.</h2>
+<p align="center" font-size="30px">Talk about how YOU feel.</p><br><br>
+<p>Jurnl is an online jounraling website where you can yap about anything and everything.</p><br><br>
+<p>Jurnl entries aren't deletable because we believe everything is important, even the smallest things.</p>
 
 ## The Jurnl Interface
 
