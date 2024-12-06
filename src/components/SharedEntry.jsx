@@ -28,7 +28,9 @@ function SharedEntry() {
         fetchSharedEntry();
     }, [entryId]);
 
-    
+
+    if (!entry) return <div className="text-center mt-20 font-mondwest text-4xl">To Jurnl or not to Jurnl...</div>;
+
     return (
         <div className=" bg-[#D9D9D9] w-full h-screen text-[#597445]">
             <div className="pl-52 pt-20">
@@ -36,7 +38,7 @@ function SharedEntry() {
             <div className=" font-neuebit mb-4 text-lg">
                 {new Date(entry.date).toLocaleDateString()}
             </div>
-            <div className="text-2xl whitespace-pre-wrap font-neuebit">{entry.content}</div>
+            <div className="text-2xl whitespace-pre-wrap font-mondwest">{entry.content}</div>
             </div>
         </div>
     );
