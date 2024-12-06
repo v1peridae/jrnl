@@ -3,6 +3,7 @@ import Home from './pages/home';
 import Journal from './pages/journal';
 import { AuthProvider } from './components/AuthContxt'; 
 import ProtectedRoute from './components/routestuff'; 
+import SharedEntry from './components/SharedEntry';
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                             </ProtectedRoute>
                         }
                     />
+                    <Route path='/shared/:entryId' element={<SharedEntry />} />
                 </Routes>
             </Router>
         </AuthProvider>
