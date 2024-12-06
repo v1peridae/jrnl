@@ -36,7 +36,7 @@ function SharedEntry() {
             <div className=" font-neuebit mb-4 text-lg">
                 {new Date(entry.date).toLocaleDateString()}
             </div>
-            <div className="text-2xl whitespace-pre-wrap font-mondwest">{entry.content}</div>
+            <div className="text-2xl whitespace-pre-wrap font-neuebit">{entry.content}</div>
             </div>
         </div>
     );
